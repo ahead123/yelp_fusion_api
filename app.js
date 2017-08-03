@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + "/views"));
 
 app.get('/', function (req, res) {
-  res.render('home')
+  res.render('index')
 })
 
 app.post('/search-results', function (req, res) {
@@ -45,8 +45,7 @@ app.post('/search-results', function (req, res) {
 		  location: location
 		}).then(response => {
 		  var data = response.jsonBody;
-		  var category = data.businesses[0].categories[0].title
-		  console.log(data)		  
+		  var category = data.businesses[0].categories[0].title	  
 		  res.render('search_results', { location:location, term:term, data:data, category:category } )
 		});
 		}).catch(e => {
