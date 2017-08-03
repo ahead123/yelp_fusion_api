@@ -1,63 +1,82 @@
 {{>templates/_headerTemplate}}
-<div class="col-md-6 col-md-offset-3">
-
-	<div class="text-center jumbotron">
-		<h2 class="">Search Results From Yelp!</h2>
-		<h3>
-			Search Term = {{term}}
-		</h3>
-		<h3>
-			Category = "{{category}}"
-		</h3>
-		<h3>
-			Location = {{location}}
-		</h3>
-	</div>
-	{{#data}}
-		{{#businesses}}
-			{{^is_closed}}	
-	  <div class="well">
-	      <div class="media">
-	      	<a class="pull-left" href="#">
-	    		<img class="media-object" height="150" width="250" src="{{image_url}}">
-	  		</a>
-	  		<div class="media-body">
-	    		<h4 class="media-heading"><a href="{{url}}" target="_blank">{{name}}</a></h4>
-	          <p class="">{{price}}</p>
-	          <p>{{location.display_address}}</p>
-	          <ul class="list-inline list-unstyled">
-	  			    <li>
-	  			    	<span>
-	  			    		<i class="glyphicon glyphicon-thumbs-up"></i> {{rating}} 
-	  			    	</span>
-	  			    </li>
-	            <li>|</li>
-	            	<span>
-	            		<i class="glyphicon glyphicon-comment"></i> 
-	            			{{review_count}} 
-	            	</span>
-	            <li>|</li>
-	            <li>
-	                <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-	            </li>	         
-						</ul>
-	       </div>
-	    </div>
-	  </div>
-	   {{/is_closed}}
-	  {{/businesses}} 
-	 {{/data}}
-		
-	<div class="footer">
-		<div class="text-center">
-			<h4><<a href="/">Back to Search</a></h4>
+{{>templates/_navTemplate}}
+<div class="container">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-default text-center">
+  					<div class="panel-body">
+    					Search Term
+  					</div>
+  				<div class="panel-footer">{{term}}</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default text-center">
+  					<div class="panel-body">
+    					City
+  					</div>
+  				<div class="panel-footer">{{location}}</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default text-center">
+  					<div class="panel-body">
+    					Business Category
+  					</div>
+  				<div class="panel-footer">{{category}}</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	
+	<div class="col-md-6 col-md-offset-3">
+		{{#data}}
+			{{#businesses}}
+				{{^is_closed}}	
+		  <div class="well">
+		      <div class="media">
+		      	<a class="pull-left" href="#">
+		    		<img class="media-object" height="150" width="250" src="{{image_url}}">
+		  		</a>
+		  		<div class="media-body">
+		    		<h4 class="media-heading"><a href="{{url}}" target="_blank">{{name}}</a></h4>
+		          <p class="">{{price}}</p>
+		          <p>{{location.display_address}}</p>
+		          <p>{{display_phone}}</p>
+		          <ul class="list-inline list-unstyled">
+		  			    <li>
+		  			    	<span>
+		  			    		<i class="glyphicon glyphicon-thumbs-up"></i> {{rating}} 
+		  			    	</span>
+		  			    </li>
+		            <li>|</li>
+		            	<span>
+		            		<i class="glyphicon glyphicon-comment"></i> 
+		            			{{review_count}} 
+		            	</span>
+		            <li>|</li>
+		            <li>
+		                <span class="glyphicon glyphicon-star"></span>
+	                  <span class="glyphicon glyphicon-star"></span>
+	                  <span class="glyphicon glyphicon-star"></span>
+	                  <span class="glyphicon glyphicon-star"></span>
+	                  <span class="glyphicon glyphicon-star-empty"></span>
+		            </li>	         
+							</ul>
+		       </div>
+		    </div>
+		  </div>
+		   {{/is_closed}}
+		  {{/businesses}} 
+		 {{/data}}
+			
+		<div class="footer">
+			<div class="text-center">
+				<h4><<a href="/">Back to Search</a></h4>
+			</div>
+		</div>
+		
+	</div>
 </div>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
