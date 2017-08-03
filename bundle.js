@@ -55,7 +55,7 @@ app.post('/search-results', function (req, res) {
 	})
 })
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('YelpNode listening on port 3000!')
 })
 
