@@ -1,12 +1,13 @@
 'use strict';
-
+require('dotenv').config()
 const yelp = require('yelp-fusion'),
-clientId = 'b42XPRn4eTQOh81QipphNA',
-clientSecret = 'axZ7Y2ujQ0I07MalkP76FvRrJv6EpghqFnW4GbUIgdqVMvN22tdYrnlDfqRR1tIS',
 express = require('express'),
 app = express(),
 bodyParser = require('body-parser'),
 mustacheExpress = require('mustache-express');
+
+var clientId=process.env.CLIENT_ID;
+var clientSecret=process.env.CLIENT_SECRET;
 
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
@@ -55,6 +56,9 @@ app.post('/search-results', function (req, res) {
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
+  console.log("clientSecret=",clientSecret)
+  console.log("clientId=",clientId)
+  console.log("node_env=",process.env.NODE_ENV)
 })
 
 

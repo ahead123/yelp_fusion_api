@@ -1,10 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-(function (__dirname){
+(function (process,__dirname){
 'use strict';
 
 const yelp = require('yelp-fusion'),
-clientId = 'b42XPRn4eTQOh81QipphNA',
-clientSecret = 'axZ7Y2ujQ0I07MalkP76FvRrJv6EpghqFnW4GbUIgdqVMvN22tdYrnlDfqRR1tIS',
+clientId = process.env.YELP_CLIENT_ID,
+clientSecret = process.env.YELP_CLIENT_SECRET,
 express = require('express'),
 app = express(),
 bodyParser = require('body-parser'),
@@ -65,8 +65,8 @@ app.listen(3000, function () {
 
 
 
-}).call(this,"/")
-},{"body-parser":35,"express":127,"mustache-express":200,"yelp-fusion":307}],2:[function(require,module,exports){
+}).call(this,require('_process'),"/")
+},{"_process":233,"body-parser":35,"express":127,"mustache-express":200,"yelp-fusion":307}],2:[function(require,module,exports){
 'use strict';
 
 const _defaultOptions = require('./request-filters/default-options');
