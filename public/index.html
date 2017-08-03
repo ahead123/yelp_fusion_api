@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Powered By Yelp!</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+</head>
+<body>
+<div class="col-md-12 container-fluid">
+	<div class="jumbotron text-center">
+		<h2>Search Yelp For A Business</h2>
+	</div>
+	<div class="col-md-6 col-md-offset-3">
+		<form method="post" action="/search-results" class="form">
+			<label for="term">Enter Business Name</label>
+			<input type="text" name="term" id="term" class="form-control">
+			<label for="location">Enter City</label>
+			<input type="text" name="location" id="location" class="form-control">
+			<br />
+			<button class="btn btn-primary btn-block" id="submit" type="submit">Submit</button>
+		</form>
+	</div>
+</div>
+<script src="bundle.js"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+</html>
