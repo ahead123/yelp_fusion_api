@@ -36,7 +36,7 @@
 		  <div class="well">
 		      <div class="media">
 		      	<a class="pull-left" href="#">
-		    		<img class="media-object" height="150" width="300" src="{{image_url}}">
+		    		<img class="media-object" height="185" width="300" src="{{image_url}}">
 		  		</a>
 		  		<div class="media-body">
 		    		<h4 class="media-heading"><a href="{{url}}" target="_blank">{{name}}</a></h4>
@@ -61,15 +61,26 @@
 	                  <span class="glyphicon glyphicon-star"></span>
 	                  <span class="glyphicon glyphicon-star"></span>
 	                  <span class="glyphicon glyphicon-star-empty"></span>
-		            </li>	         
+		            </li>
+		            <li>|</li>
+		            <a href="{{url}}" target="_blank" style="text-decoration: none;">
+		            	<span class="label label-danger">View On Yelp</span>
+		            </a>         
 							</ul>
+							<button id="{{id}}" class="btn btn-sm btn-primary mediaButton">See Reviews</button>
+							<div class="loading text-center" style="display:none; margin-top: 5px;">
+								<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>								
+								<p>Feature coming soon...</p>
+							</div>
+									
+								<div id="{{id}}" style="display:none;"></div>
+
 		       </div>
 		    </div>
 		  </div>
 		   {{/is_closed}}
 		  {{/businesses}} 
-		 {{/data}}
-			
+		 {{/data}}		
 		<div class="footer">
 			<div class="text-center">
 				<h4><<a href="/">Back to Search</a></h4>
@@ -83,7 +94,30 @@
 
 	$(document).ready(function(){
 
+		$(".mediaButton").click(function(){
+			
+			var biz_id = $(this).attr('id');
+			window.findMe = biz_id
+
+			$( document ).ajaxStart(function() {  			
+  			$("#"+window.findMe).next().show('slow')
+			})
+
+			$( document ).ajaxStop(function() {  			
+  			$("#"+window.findMe).next().hide('slow')
+  			$("#"+window.findMe).next().next().show('slow')
+			})
+
+			$.get("/reviews/reviews-show/"+biz_id, function(data){												
+				var template = "{{#reviews}}<p>{{text}}</p>{{/reviews}}";
+				console.log("template",template)
+				$('div#'+window.findMe).html(Mustache.render(template, data));
+				$('div#'+window.findMe).show()
+								
+			})			
+			
+		})
+
 	})
 
 </script>
-
