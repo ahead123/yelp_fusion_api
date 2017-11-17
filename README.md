@@ -14,3 +14,12 @@ Node app that connects to the Yelp Fusion API to display search results for busi
 8) add a CLIENT_ID=plus_your_yelp_client_id to the .env file
 9) Run npm start to start the node server
 10) View the app in the browser on localhost:3000
+
+## View a LIVE example of this app
+
+[blogReactified](https://yelpnode.herokuapp.com/)
+
+
+## License
+
+This project is licensed under the MIT License
