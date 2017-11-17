@@ -3,7 +3,7 @@ module.exports = function(router){
 	var yelp = require('yelp-fusion'),
 	clientId=process.env.CLIENT_ID,
 	clientSecret=process.env.CLIENT_SECRET;
-
+	
 	router.route('/search/search-results') 
 	 .post(function(req, res) {
 			var location = req.body.location;

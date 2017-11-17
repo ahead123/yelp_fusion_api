@@ -1,20 +1,22 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (process,__dirname){
 'use strict';
+
 require('dotenv').config()
 const express = require('express'),
 app = express(),
 bodyParser = require('body-parser'),
-mustacheExpress = require('mustache-express');
+mustacheExpress = require('mustache-express'),
+path = require('path');
 
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
-app.set("views", __dirname + "/views");
+app.set('views', __dirname + '/views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + "/views"));
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname + '/views')));
 
 
 app.listen(process.env.PORT || 3000, function () {
@@ -23,11 +25,11 @@ app.listen(process.env.PORT || 3000, function () {
 
 var router = express.Router();
 
-app.use(require("./routes.js")(router));
+app.use(require('./routes.js')(router));
 
 
 }).call(this,require('_process'),"/")
-},{"./routes.js":312,"_process":237,"body-parser":38,"dotenv":106,"express":131,"mustache-express":204}],2:[function(require,module,exports){
+},{"./routes.js":312,"_process":237,"body-parser":38,"dotenv":106,"express":131,"mustache-express":204,"path":229}],2:[function(require,module,exports){
 module.exports = function(router){
 
 	router.route('/')
@@ -20424,30 +20426,35 @@ utils.intFromLE = intFromLE;
 
 },{"bn.js":37,"minimalistic-assert":200,"minimalistic-crypto-utils":201}],123:[function(require,module,exports){
 module.exports={
-  "_from": "elliptic@^6.0.0",
+  "_args": [
+    [
+      "elliptic@6.4.0",
+      "/Users/arthurhead/Desktop/code/node/yelp-api"
+    ]
+  ],
+  "_from": "elliptic@6.4.0",
   "_id": "elliptic@6.4.0",
   "_inBundle": false,
   "_integrity": "sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "elliptic@^6.0.0",
+    "raw": "elliptic@6.4.0",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "^6.0.0",
+    "rawSpec": "6.4.0",
     "saveSpec": null,
-    "fetchSpec": "^6.0.0"
+    "fetchSpec": "6.4.0"
   },
   "_requiredBy": [
     "/browserify-sign",
     "/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
-  "_shasum": "cac9af8762c85836187003c8dfe193e5e2eae5df",
-  "_spec": "elliptic@^6.0.0",
-  "_where": "/Users/arthurhead/Desktop/code/node/yelp-api/node_modules/browserify-sign",
+  "_spec": "6.4.0",
+  "_where": "/Users/arthurhead/Desktop/code/node/yelp-api",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -20455,7 +20462,6 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -20465,7 +20471,6 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
-  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",

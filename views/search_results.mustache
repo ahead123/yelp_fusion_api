@@ -73,7 +73,11 @@
 								<p>Feature coming soon...</p>
 							</div>
 									
-								<div id="{{id}}" style="display:none;"></div>
+								<div id="{{id}}">
+									{{#reviews}}
+										<p><small>{{text}}</small></p>
+									{{/reviews}}
+								</div>
 
 		       </div>
 		    </div>
@@ -97,24 +101,24 @@
 		$(".mediaButton").click(function(){
 			
 			var biz_id = $(this).attr('id');
-			window.findMe = biz_id
+			window.clickedElement = biz_id
 
 			$( document ).ajaxStart(function() {  			
-  			$("#"+window.findMe).next().show('slow')
+  			$("#"+window.clickedElement).next().show('slow')
 			})
 
 			$( document ).ajaxStop(function() {  			
-  			$("#"+window.findMe).next().hide('slow')
-  			$("#"+window.findMe).next().next().show('slow')
+  			$("#"+window.clickedElement).next().hide('slow')
+  			$("#"+window.clickedElement).next().next().show('slow')
 			})
 
-			$.get("/reviews/reviews-show/"+biz_id, function(data){												
-				var template = "{{#reviews}}<p>{{text}}</p>{{/reviews}}";
-				console.log("template",template)
-				$('div#'+window.findMe).html(Mustache.render(template, data));
-				$('div#'+window.findMe).show()
-								
-			})			
+			$(document).ready(function(){
+				$.get("/reviews/reviews-show/"+biz_id, function(data){												
+					var template = "{{#reviews}}<p>{{text}}</p>{{/reviews}}";
+					console.log("data from views",data)
+					$('div#'+window.clickedElement).html(data);												
+				})	
+			})		
 			
 		})
 
