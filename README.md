@@ -17,7 +17,7 @@ Node app that connects to the Yelp Fusion API to display search results for busi
 
 ## View a LIVE example of this app
 
-[blogReactified](https://yelpnode.herokuapp.com/)
+[YelpNode](https://yelpnode.herokuapp.com/)
 
 
 ## License
