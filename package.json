@@ -18,9 +18,9 @@
     "express": "^4.15.3",
     "font-awesome": "^4.7.0",
     "glyphicons": "^0.2.0",
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.7.4",
     "mustache-express": "^1.2.5",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.14.11",
     "yelp-fusion": "^1.0.3"
   }
 }
