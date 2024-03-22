@@ -20,7 +20,7 @@
     "glyphicons": "^0.2.0",
     "handlebars": "^4.0.10",
     "mustache-express": "^1.2.5",
-    "nodemon": "^1.11.0",
+    "nodemon": "^2.0.0",
     "yelp-fusion": "^1.0.3"
   }
 }
