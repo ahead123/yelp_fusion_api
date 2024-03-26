@@ -15,7 +15,7 @@
     "body-parser": "^1.17.2",
     "browserify": "^14.4.0",
     "dotenv": "^4.0.0",
-    "express": "^4.15.3",
+    "express": "^4.19.2",
     "font-awesome": "^4.7.0",
     "glyphicons": "^0.2.0",
     "handlebars": "^4.0.10",
